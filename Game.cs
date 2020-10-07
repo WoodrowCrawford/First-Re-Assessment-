@@ -4,9 +4,11 @@ using System.Text;
 
 namespace HelloWorld
 {
+   
     class Game   
     {
         private bool _gameover = false;
+        private Enemy enemy = new Enemy();
         //Run the game
         public void Run()
         {
@@ -28,7 +30,7 @@ namespace HelloWorld
             Console.ReadLine();
             Console.WriteLine("Now are you a BOY or a GIRL?");
 
-            char input = ' ';
+            char input = Console.ReadKey().KeyChar;
             
            switch (input)
             {
@@ -52,16 +54,20 @@ namespace HelloWorld
 
             Console.WriteLine("Okay now it's time to choose your starter pokemon. You can only pick one so pick wisely!");
             Console.ReadLine();
-            Console.WriteLine("You can pick the grass type Rowlet");
-            Console.WriteLine("You can pick the water type Popplio");
-            Console.WriteLine("Or you can pick the fire type Litten");
+            Console.WriteLine("You can pick the grass type Rowlet (1)");
+            Console.WriteLine("You can pick the water type Popplio (2)");
+            Console.WriteLine("Or you can pick the fire type Litten (3)");
+            Console.WriteLine("Pick a number");
+
+            input = Console.ReadKey().KeyChar;
 
             switch (input)
             {
                 case '1':
                     {
                         Console.WriteLine("ROWLET? I'm sure you two will get along nicely! ");
-                        Pokemon pokemon = new Rowlet();
+                        
+                        
                         break;
                     }
                 case '2':
@@ -78,7 +84,7 @@ namespace HelloWorld
                     }
                 default:
                     {
-                        Console.WriteLine("You didn't pick one of the three starters. I will give you the DEFAULT POKEMON." +
+                        Console.WriteLine("You didn't pick one of the three starters. I will give you the DEFAULT POKEMON. " +
                             "I'm sure you two will get along nicely!");
                         Pokemon pokemon = new Pokemon();
                         break;
@@ -90,10 +96,19 @@ namespace HelloWorld
             
         }
 
+        public void Battle(Rowlet rowlet, Enemy enemy)
+        {
+            while (rowlet._health >= 100 && enemy._health >= 100)
+            {
+                rowlet.PrintStats();
+            }
+        }
+
         //Performed once when the game begins
         public void Start()
         {
             Intro();
+            
         }
 
         //Repeated until the game ends

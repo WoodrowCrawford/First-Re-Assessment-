@@ -24,7 +24,7 @@ namespace HelloWorld
             writer.WriteLine("Current Damage: " + _damage);
         }
 
-        public override void Scratch(ref Enemy _health)
+        public override void Scratch()
         {
             Console.WriteLine("POPPLIO used SCRATCH!");
         }

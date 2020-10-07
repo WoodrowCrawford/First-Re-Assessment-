@@ -18,6 +18,11 @@ namespace HelloWorld
             _damage = 10;
         }
 
+        public int GetHealth()
+        {
+            return _health;
+        }
+
         public void Bite()
         {
             Console.WriteLine("RATTATA used BITE!");

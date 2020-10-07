@@ -30,7 +30,7 @@ namespace HelloWorld
         }
 
 
-        public virtual void Scratch(ref Enemy _health)
+        public virtual void Scratch()
         {
             Console.WriteLine("BASIC POKEMON used SCRATCH!");
             
