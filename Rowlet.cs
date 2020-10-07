@@ -25,7 +25,7 @@ namespace HelloWorld
         }
 
 
-        public override void Scratch()
+        public override void Scratch(ref Enemy _health)
         {
             Console.WriteLine("ROWLET used SCRATCH!");
         }

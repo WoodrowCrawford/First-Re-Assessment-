@@ -28,10 +28,11 @@ namespace HelloWorld
             writer.WriteLine("Current Damage: " + _damage);
         }
 
-        
-        public virtual void Scratch()
+
+        public virtual void Scratch(ref Enemy _health)
         {
             Console.WriteLine("BASIC POKEMON used SCRATCH!");
+            
         }
 
     }
