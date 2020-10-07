@@ -10,9 +10,12 @@ namespace HelloWorld
         private int _health;
         private int _damage;
 
+
         public Enemy()
         {
             _name = "Rattata";
+            _health = 60;
+            _damage = 10;
         }
 
         public void Bite()

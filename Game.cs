@@ -20,14 +20,72 @@ namespace HelloWorld
         }
 
        
-        //Gets the player to choose the main pokemon they want to use
+        //Gets the player to pick their gender and the main pokemon they want to use
         public void Intro()
         {
-            Console.WriteLine("Why hello there! Welcome to the world of pokemon! I'm Professor Evergreen!");
+            Console.WriteLine("Hello there! Welcome to the world of pokemon! I'm Professor Evergreen!" +
+                "\n This is the Codenn region, and you will meet plenty of pokemon here!");
             Console.ReadLine();
             Console.WriteLine("Now are you a BOY or a GIRL?");
+
+            char input = ' ';
             
-            
+           switch (input)
+            {
+                case '1':
+                    {
+                        Console.WriteLine("A BOY huh?");
+                        Console.ReadLine();
+                        break;
+                    }
+                case '2':
+                    {
+                        Console.WriteLine("A GIRL huh?");
+                        break;
+                    }
+                default:
+                    {
+                        Console.WriteLine("Are you a BOY or a GIRL?");
+                        return;
+                    }
+            }
+
+            Console.WriteLine("Okay now it's time to choose your starter pokemon. You can only pick one so pick wisely!");
+            Console.ReadLine();
+            Console.WriteLine("You can pick the grass type Rowlet");
+            Console.WriteLine("You can pick the water type Popplio");
+            Console.WriteLine("Or you can pick the fire type Litten");
+
+            switch (input)
+            {
+                case '1':
+                    {
+                        Console.WriteLine("ROWLET? I'm sure you two will get along nicely! ");
+                        Pokemon pokemon = new Rowlet();
+                        break;
+                    }
+                case '2':
+                    {
+                        Console.WriteLine("POPPLIO? I'm sure you two will get along nicely!");
+                        Pokemon pokemon = new Popplio();
+                        break;
+                    }
+                case '3':
+                    {
+                        Console.WriteLine("LITTEN? I'm sure you two will get along nicely!");
+                        Pokemon pokemon = new Litten();
+                        break;
+                    }
+                default:
+                    {
+                        Console.WriteLine("You didn't pick one of the three starters. I will give you the DEFAULT POKEMON." +
+                            "I'm sure you two will get along nicely!");
+                        Pokemon pokemon = new Pokemon();
+                        break;
+                    }
+            }
+
+            Console.WriteLine("Okay now it's time for you to explore Codenn and be the best pokemon trainer out there!");
             
             
         }

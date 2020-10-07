@@ -26,6 +26,7 @@ namespace HelloWorld
             writer.WriteLine("Pokemon Name: " + _name);
             writer.WriteLine("Pokemon Health: " + _health);
             writer.WriteLine("Current Damage: " + _damage);
+            
         }
 
 
