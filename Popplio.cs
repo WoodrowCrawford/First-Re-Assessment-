@@ -24,9 +24,29 @@ namespace HelloWorld
             writer.WriteLine("Current Damage: " + _damage);
         }
 
-        public override void Scratch()
+        public override void PrintStats()
         {
-            Console.WriteLine("POPPLIO used SCRATCH!");
+            base.PrintStats();
+        }
+
+        public override int Scratch(Pokemon pokemon, Pokemon enemy)
+        {
+            return base.Scratch(pokemon, enemy);
+        }
+
+        public int TakeDamage(int damageval, Pokemon popplio, Pokemon enemy)
+        {
+            _health -= damageval;
+            if (_health < 0)
+            {
+                _health = 0;
+            }
+            return damageval;
+        }
+
+        public override bool IsAlive()
+        {
+            return base.IsAlive();
         }
     }
 }

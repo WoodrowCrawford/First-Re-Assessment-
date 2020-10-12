@@ -24,19 +24,32 @@ namespace HelloWorld
             writer.WriteLine("Current Damage: " + _damage);
         }
 
-        public void PrintStats()
+        public override void PrintStats()
         {
-            Console.WriteLine("Pokemon Name: " + _name);
-            Console.WriteLine("Pokemon Health: " + _health);
-            Console.WriteLine("Current Damage: " + _damage);
-
+            base.PrintStats();
         }
 
 
-        public override void Scratch()
+        public override int Scratch(Pokemon pokemon, Pokemon enemy)
         {
-            Console.WriteLine("ROWLET used SCRATCH!");
+            return base.Scratch(pokemon, enemy);
+        }
+
+        public int TakeDamage(int damageval, Pokemon rowlet, Pokemon enemy)
+        {
+
             
+            _health -= damageval;
+            if (_health < 0)
+            {
+                _health = 0;
+            }
+            return damageval;
+        }
+
+        public override bool IsAlive()
+        {
+            return base.IsAlive();
         }
     }
 }
