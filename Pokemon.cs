@@ -11,6 +11,7 @@ namespace HelloWorld
         public string _name;
         public int _health;
         public int _damage;
+        public Item[] inventory;
 
         
 
@@ -19,7 +20,9 @@ namespace HelloWorld
             _name = "Basic Pokemon";
             _health = 70;
             _damage = 15;
+
         }
+        public Pokemon(float healthVal, string nameVal)
 
         public virtual void Save(StreamWriter writer)
         {
@@ -30,10 +33,22 @@ namespace HelloWorld
         }
 
 
-        public virtual void Scratch()
+        public virtual float Scratch(Enemy enemy)
         {
             Console.WriteLine("BASIC POKEMON used SCRATCH!");
+            float damageTaken = enemy.TakeDamage(_damage);
+            return damageTaken;
             
+        }
+
+        public virtual float TakeDamage(float damageVal)
+        {
+            _health -= damageVal;
+            if (_health < 0)
+            {
+                _health = 0;
+            }
+            return damageVal;
         }
 
     }

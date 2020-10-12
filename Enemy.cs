@@ -18,14 +18,18 @@ namespace HelloWorld
             _damage = 10;
         }
 
+        
+
         public int GetHealth()
         {
             return _health;
         }
 
-        public void Bite()
+        public virtual void Bite(Pokemon pokemon)
         {
             Console.WriteLine("RATTATA used BITE!");
+            damageTaken = pokemon.TakeDamage(_damage);
+            return damageTaken;
         }
     }
 }

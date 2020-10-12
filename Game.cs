@@ -5,10 +5,19 @@ using System.Text;
 namespace HelloWorld
 {
    
+    struct Item
+    {
+        public string name;
+        public int _healthRestored;
+    }
     class Game   
     {
         private bool _gameover = false;
-        private Enemy enemy = new Enemy();
+        private Pokemon _litten = new Litten();
+        private Pokemon _rowlet = new Rowlet();
+        private Pokemon _popplio = new Popplio();
+        private Enemy _enemy = new Enemy();
+        private Item _potion;
         //Run the game
         public void Run()
         {
@@ -21,6 +30,14 @@ namespace HelloWorld
             End();
         }
 
+        public void SetItems()
+        {
+            _potion.name = "Potion";
+            _potion._healthRestored = 10;
+        }
+
+      
+
        
         //Gets the player to pick their gender and the main pokemon they want to use
         public void Intro()
@@ -28,7 +45,7 @@ namespace HelloWorld
             Console.WriteLine("Hello there! Welcome to the world of pokemon! I'm Professor Evergreen!" +
                 "\n This is the Codenn region, and you will meet plenty of pokemon here!");
             Console.ReadLine();
-            Console.WriteLine("Now are you a BOY or a GIRL?");
+            Console.WriteLine("Now are you a BOY(1) or a GIRL?(2)");
 
             char input = Console.ReadKey().KeyChar;
             
@@ -66,8 +83,7 @@ namespace HelloWorld
                 case '1':
                     {
                         Console.WriteLine("ROWLET? I'm sure you two will get along nicely! ");
-                        
-                        
+                        Pokemon pokemon = new Rowlet();
                         break;
                     }
                 case '2':
@@ -92,23 +108,25 @@ namespace HelloWorld
             }
 
             Console.WriteLine("Okay now it's time for you to explore Codenn and be the best pokemon trainer out there!");
+            Console.ReadLine();
+            Console.Clear();
             
             
         }
 
-        public void Battle(Rowlet rowlet, Enemy enemy)
+        public void Battle()
         {
-            while (rowlet._health >= 100 && enemy._health >= 100)
-            {
-                rowlet.PrintStats();
-            }
+            Console.WriteLine("A wild pokemon has appeared!!");
+            Console.WriteLine("Go, " + _rowlet._name + "!");
         }
+        
 
         //Performed once when the game begins
         public void Start()
         {
+            SetItems();
             Intro();
-            
+            Battle();
         }
 
         //Repeated until the game ends
