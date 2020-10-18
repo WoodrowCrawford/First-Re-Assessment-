@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Transactions;
 
@@ -17,17 +18,21 @@ namespace HelloWorld
         public Item _potion;
         public Item _superPotion;
         public Item[] inventory;
-        
 
-        
+
+
 
         public Pokemon()
         {
-            _name = "Basic Pokemon";
             _health = 70;
             _damage = 15;
-            Item[] inventory = { _potion, _superPotion };
-            
+            inventory = new Item[2];
+            _potion.name = "Potion";
+            _potion._healthRestored = 10;
+            _superPotion.name = "Super Potion";
+            _superPotion._healthRestored = 20;
+            inventory[0] = _potion;
+            inventory[1] = _superPotion;
 
         }
         public Pokemon(int healthVal, string nameVal, int damageVal)
@@ -37,12 +42,42 @@ namespace HelloWorld
             _damage = damageVal;
         }
 
+       
+        // The save function for the player
         public virtual void Save(StreamWriter writer)
         {
             writer.WriteLine("Pokemon Name: " + _name);
             writer.WriteLine("Pokemon Health: " + _health);
             writer.WriteLine("Current Damage: " + _damage);
-            
+
+        }
+
+        
+        //The load function for the player
+        public virtual bool Load(StreamReader reader)
+        {
+            if(File.Exists("SaveData.txt") == false)
+            {
+                return false;
+            }
+
+            string name = reader.ReadLine();
+            int damage = 0;
+            int health = 0;
+
+            if (int.TryParse(reader.ReadLine(), out health) == false)
+            {
+                return false;
+            }
+            if (int.TryParse(reader.ReadLine(), out damage) == false)
+            {
+                return false;
+            }
+
+            _name = name;
+            _damage = damage;
+            _health = health;
+            return true;
         }
 
         public virtual void PrintStats()
@@ -52,12 +87,9 @@ namespace HelloWorld
             Console.WriteLine("Current Damage: " + _damage);
         }
 
-        public virtual void GetInventory(Item[] inventory)
+        public virtual Item[] GetInventory()
         {
-            foreach(Item i in inventory)
-            {
-                Console.WriteLine(i);
-            }
+            return inventory;
 
         }
 

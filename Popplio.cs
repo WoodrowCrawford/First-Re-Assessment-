@@ -17,16 +17,28 @@ namespace HelloWorld
             _waterDamage = 5;
         }
 
+        
+        //The save function for Popplio
         public override void Save(StreamWriter writer)
         {
-            writer.WriteLine("Pokemon Name: " + _name);
-            writer.WriteLine("Pokemon Health: " + _health);
-            writer.WriteLine("Current Damage: " + _damage);
+            base.Save(writer);
+        }
+
+        
+        //The load function for Popplio
+        public override bool Load(StreamReader reader)
+        {
+            return base.Load(reader);
         }
 
         public override void PrintStats()
         {
             base.PrintStats();
+        }
+
+        public override Item[] GetInventory()
+        {
+            return base.GetInventory();
         }
 
         public override int Scratch(Pokemon pokemon, Pokemon enemy)

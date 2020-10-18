@@ -8,20 +8,29 @@ namespace HelloWorld
     class Rowlet : Pokemon
     {
         private int _grassDamage;
+        
 
         public Rowlet() : base()
         {
             _name = "Rowlet";
             _health = 85;
             _damage = (20 + _grassDamage);
-            _grassDamage = 7; 
+            _grassDamage = 7;
+           
         }
 
+        
+        //The save function made for Rowlet
         public override void Save(StreamWriter writer)
         {
-            writer.WriteLine("Pokemon Name: " + _name);
-            writer.WriteLine("Pokemon Health: " + _health);
-            writer.WriteLine("Current Damage: " + _damage);
+            base.Save(writer);
+        }
+
+        
+        //The load function for Rowlet
+        public override bool Load(StreamReader reader)
+        {
+            return base.Load(reader);
         }
 
         public override void PrintStats()
@@ -29,11 +38,11 @@ namespace HelloWorld
             base.PrintStats();
         }
 
-        public override void GetInventory(Item[] inventory)
+        public override Item[] GetInventory()
         {
-            base.GetInventory(inventory);
+            return base.GetInventory();
+            
         }
-
 
         public override int Scratch(Pokemon pokemon, Pokemon enemy)
         {

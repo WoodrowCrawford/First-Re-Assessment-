@@ -19,16 +19,28 @@ namespace HelloWorld
             
             
         }
+
+        //The save function for Litten
         public override void Save(StreamWriter writer)
         {
-            writer.WriteLine("Pokemon Name: " + _name);
-            writer.WriteLine("Pokemon Health: " + _health);
-            writer.WriteLine("Current Damage: " + _damage);
+            base.Save(writer);
+        }
+
+        
+        //The load function for Litten
+        public override bool Load(StreamReader reader)
+        {
+            return base.Load(reader);
         }
 
         public override void PrintStats()
         {
             base.PrintStats();
+        }
+
+        public override Item[] GetInventory()
+        {
+            return base.GetInventory();
         }
 
 
