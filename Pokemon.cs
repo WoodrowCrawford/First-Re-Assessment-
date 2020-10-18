@@ -3,7 +3,9 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Net.Http.Headers;
 using System.Text;
+using System.Transactions;
 
 namespace HelloWorld
 {
@@ -12,7 +14,10 @@ namespace HelloWorld
         public string _name;
         public int _health;
         public int _damage;
+        public Item _potion;
+        public Item _superPotion;
         public Item[] inventory;
+        
 
         
 
@@ -21,6 +26,7 @@ namespace HelloWorld
             _name = "Basic Pokemon";
             _health = 70;
             _damage = 15;
+            Item[] inventory = { _potion, _superPotion };
             
 
         }
@@ -44,6 +50,15 @@ namespace HelloWorld
             Console.WriteLine("Pokemon Name: " + _name);
             Console.WriteLine("Pokemon Health: " + _health);
             Console.WriteLine("Current Damage: " + _damage);
+        }
+
+        public virtual void GetInventory(Item[] inventory)
+        {
+            foreach(Item i in inventory)
+            {
+                Console.WriteLine(i);
+            }
+
         }
 
         

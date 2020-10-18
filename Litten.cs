@@ -8,6 +8,7 @@ namespace HelloWorld
     class Litten : Pokemon
     {
         private int _fireDamage;
+        
 
         public Litten() : base()
         {
@@ -15,6 +16,7 @@ namespace HelloWorld
             _health = 80;
             _damage = (25 + _fireDamage);
             _fireDamage = 5;
+            
             
         }
         public override void Save(StreamWriter writer)

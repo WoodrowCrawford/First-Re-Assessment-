@@ -18,6 +18,7 @@ namespace HelloWorld
         private Pokemon _popplio = new Popplio();
         private Enemy _enemy = new Enemy();
         private Item _potion;
+        private Item _superPotion;
         //Run the game
         public void Run()
         {
@@ -34,6 +35,8 @@ namespace HelloWorld
         {
             _potion.name = "Potion";
             _potion._healthRestored = 10;
+            _superPotion.name = "Super Potion";
+            _superPotion._healthRestored = 20;
         }
 
         public void GetInput(out char input, string option1, string option2, string option3, string query)
@@ -165,6 +168,9 @@ namespace HelloWorld
                     _rowlet.TakeDamage(10, _rowlet, _enemy);
                 }
                 if (input == '2')
+                {
+                    _rowlet.GetInventory(Item [])
+                }
   
                 
             }

@@ -29,6 +29,11 @@ namespace HelloWorld
             base.PrintStats();
         }
 
+        public override void GetInventory(Item[] inventory)
+        {
+            base.GetInventory(inventory);
+        }
+
 
         public override int Scratch(Pokemon pokemon, Pokemon enemy)
         {
