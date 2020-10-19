@@ -33,17 +33,22 @@ namespace HelloWorld
             return base.Load(reader);
         }
 
+
+        //Prints the pokemon stats
         public override void PrintStats()
         {
             base.PrintStats();
         }
 
+
+        //Gets the player inventory
         public override Item[] GetInventory()
         {
             return base.GetInventory();
         }
 
 
+        //The attack function for the pokemon
         public override int Scratch(Pokemon pokemon, Pokemon enemy)
         {
             return base.Scratch(pokemon, enemy);
@@ -59,6 +64,8 @@ namespace HelloWorld
             return damageval;
         }
 
+
+        //Checks to see if the player is alive
         public override bool IsAlive()
         {
             return base.IsAlive();

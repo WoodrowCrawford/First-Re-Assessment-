@@ -16,11 +16,15 @@ namespace HelloWorld
             _damage = 10;
         }
 
+
+        //Prints the pokemon stats
         public override void PrintStats()
         {
             base.PrintStats();
         }
 
+
+        //The attack function for the enemy pokemon
         public virtual int Bite(Pokemon pokemon, Pokemon litten, Pokemon popplio, Pokemon rowlet, Pokemon enemy)
         {
             Console.WriteLine("RATTATA used BITE!");
@@ -37,6 +41,8 @@ namespace HelloWorld
             return base.TakeDamage(damageVal, pokemon, enemy);
         }
 
+
+        //Checks to see if the pokemon is alive
         public override bool IsAlive()
         {
             return base.IsAlive();

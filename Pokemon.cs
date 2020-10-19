@@ -21,7 +21,7 @@ namespace HelloWorld
 
 
 
-
+        //Basic stats for a pokemon
         public Pokemon()
         {
             _health = 70;
@@ -80,6 +80,7 @@ namespace HelloWorld
             return true;
         }
 
+        //Prints the pokemon stats
         public virtual void PrintStats()
         {
             Console.WriteLine("Pokemon Name: " + _name);
@@ -87,6 +88,8 @@ namespace HelloWorld
             Console.WriteLine("Current Damage: " + _damage);
         }
 
+
+        //Gets the player inventory
         public virtual Item[] GetInventory()
         {
             return inventory;

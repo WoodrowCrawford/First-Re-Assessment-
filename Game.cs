@@ -34,6 +34,8 @@ namespace HelloWorld
             End();
         }
 
+        
+        //Sets the items
         public void SetItems()
         {
             _potion.name = "Potion";
@@ -42,6 +44,8 @@ namespace HelloWorld
             _superPotion._healthRestored = 20;
         }
 
+
+        //Input for selecting gender
         public void GetInput(out char input, string option1, string option2, string query)
         {
             Console.WriteLine(query);
@@ -60,6 +64,8 @@ namespace HelloWorld
             }
         }
 
+
+        //Input for selecting what to do in battle
         public void GetInput(out char input, string option1, string option2, string option3, string query)
         {
             Console.WriteLine(query);

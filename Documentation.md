@@ -1,0 +1,90 @@
+# HelloWorld
+ 
+## Game name: Pokemon beta
+### How to play:
+- The game will explain what the game is and it will ask you for your gender and then asks for you to pick from 3 pokemon. Each pokemon has their own special element that deals bounus damage.
+ A get input function is used for this. After the pokemon is picked the battle function for that pokemon is used.
+
+## Classes:
+-  Pokemon : This is the main class that has all the variables that make a pokemon. All 3 starter pokemon and the enemy pokemon uses this class in some way. 
+    - #### Variables in Pokemon class:
+      - name: Gets the pokemon name
+      - health: Gets the pokemon health
+      - damage: Gets the pokemon damage
+      - potion: An item that heals the player by 10 health points. It is in the player inventory.
+      - super potion: An item that heals the player by 20 health points. It is also in the player inventory.
+      - inventory: This is where items that were previously made get stored. The player can use this to get items from their inventory. This is only for the 3 starter pokemon.
+    - #### Functions in pokemon:
+      - Public pokemon: Creates the base values for a pokemon. This is where variables like name and damage are set.
+      - Public virtural void save: This is used for saving the pokemon stats. It is virtual so that the 3 starter pokemon can use it.
+      - Public virtual void load: This is used for loading a save file created. All 3 starter pokemon have access to this.
+      - public virtual void print stats: This is used to print the name, health, and damage for all the pokemon.
+      - public virtual item Get inventory: This is used to get the current pokemon's inventory.
+      - public virtual int scratch: This is the main attack function for the 3 starter pokemon. The enemy pokemon does not have access to this variable.
+      - public int take damage: This is used when the player takes damage fron the enemy pokemon.
+      - public virtual bool is alive: This checks to see if the current pokemon is alive.
+- Rowlet: This is a sub class in pokemon. It uses all the things that makes the pokemon class a class but it also has its own unique variable.
+  - #### Variables in Rowlet class:
+    - All the variables in Pokemon class
+    - Grass damage: This is used as bonus damage for the pokemon. 
+   - #### Functions in Rowlet:
+     - public rowlet :base : This is used to call all of the variables used to make a pokemon in the pokemon class, but it also adds the grass damage variable. It also has different numbers for the health, and damage stats.
+     - public override void save: This is the save function made for Rowlet. It saves the name, current health, and damage.
+     - public override bool load: This is the load function made for Rowlet. It gets the latest save and loads the file.
+     - public override print stats: This is used to print the name, health, and damage for Rowlet.
+     - public override item Get inventory: This is used to get the inventory for Rowlet.
+     - public override int scratch: This is the attack function from the pokemon class made for the Rowlet class.
+     - public int take damage: This is used when Rowlet gets attacked from the enemy pokemon.
+     - public override bool is alive: This is used to check if Rowlet is alive.
+- Popplio: This is a sub class in pokemon. It uses all the things that makes the pokemon class a class but it also has its own unique variable.
+  - #### Variables in Popplio class:
+    - All the variables in pokemon class.
+    - Water damage: This is used as bonus damage for the pokemon.
+- #### Functions in Popplio:
+     - public popplio :base : This is used to call all of the variables used to make a pokemon in the pokemon class, but it also adds the water damage variable. It also has different numbers for the health, and damage stats.
+     - public override void save: This is the save function made for Popplio. It saves the name, current health, and damage.
+     - public override bool load: This is the load function made for Popplio. It gets the latest save and loads the file.
+     - public override print stats: This is used to print the name, health, and damage for Popplio.
+     - public override item Get inventory: This is used to get the inventory for Popplio.
+     - public override int scratch: This is the attack function from the pokemon class made for the Popplio class.
+     - public int take damage: This is used when Popplio gets attacked from the enemy pokemon.
+     - public override bool is alive: This is used to check if Popplio is alive.
+- Litten: This is a sub class in pokemon. It uses all the things that makes the pokemon class a class but it also has its own unique variable.
+  - #### Variables in Litten class:
+    - All the variables in Pokemon class
+    - Fire damage: This is used as bonus damage for the pokemon. 
+   - #### Functions in Litten:
+     - public litten :base : This is used to call all of the variables used to make a pokemon in the pokemon class, but it also adds the fire damage variable. It also has different numbers for the health, and damage stats.
+     - public override void save: This is the save function made for Litten. It saves the name, current health, and damage.
+     - public override bool load: This is the load function made for Litten. It gets the latest save and loads the file.
+     - public override print stats: This is used to print the name, health, and damage for Litten.
+     - public override item Get inventory: This is used to get the inventory for Litten.
+     - public override int scratch: This is the attack function from the pokemon class made for the Litten class.
+     - public int take damage: This is used when Litten gets attacked from the enemy pokemon.
+     - public override bool is alive: This is used to check if Litten is alive.
+ - Enemy: This is the main enemy that the player fights. It uses the base stats for the pokemon class.
+   - #### Variables in Enemy class:
+     - All the variables in the pokemon class
+    - #### Functions in Enemy class: 
+      - public enemy :base :This is used to call all of the variables used to make a pokemon in the pokemon class. It does not have any bonus damage.
+      - public override void print stats: This is used to print the stats of the enemy pokemon.
+      - public virtual int bite: This is a variable used only for the enemy pokemon. It uses this to attack the player.
+      - public int take damage: This is used when the enemy gets attacked by the player.
+      - public override bool is alive: This is used to check if the enemy is alive.
+ - Game: This is where all the classes, funtions, and variables are used to play the game.
+   - #### Variables in Game class:
+     - gameover: This is a bool used to check if the game is over or not. It is set to false by default.
+     - all of the variables in the previous classes.
+    - #### Functions in Game class:
+      - public void set items: This is used to set names and values for the healig items.
+      - public void Get input: This used to get input from the player in the game. It is overloaded so that the player can have various outcomes and choices.
+      - public void rowlet save: This is used to save in the game class. It calls on the save function in the Rowlet class.
+      - public void rowlet load: This is used to get the save file in the game and laods it. It calls on the load function in the Rowlet class.
+      - public void popplio save: This is used to save in the game class. It calls on the save function in the Popplio class.
+      - public void popplio load: This is used to get the save file in the game and laods it. It calls on the load function in the Popplio class.
+      - public void litten save: This is used to save in the game class. It calls on the save function in the Litten class.
+      - public void litten load: This is used to get the save file in the game and laods it. It calls on the load function in the Litten class.
+      - public void intro: This is the function that gets the player gender and then asks them to choose their starter pokemon.
+      - public void battle rowlet: This is the main battle function for Rowlet. It battles the enemy pokemon. During the battle, the player has 3 options to choose from. They can either attack, use items in their inventory, or run away. Run away will always fail. After every player choice, whether they attacked or not, the enemy will attack next. This will loop until one of the Pokemon faints in battle.
+      - public void battle popplio: This is the main battle function for Popplio. It battles the enemy pokemon. During the battle, the player has 3 options to choose from. They can either attack, use items in their inventory, or run away. Run away will always fail. After every player choice, whether they attacked or not, the enemy will attack next. This will loop until one of the Pokemon faints in battle.
+      - public void battle litten: This is the main battle function for Litten. It battles the enemy pokemon. During the battle, the player has 3 options to choose from. They can either attack, use items in their inventory, or run away. Run away will always fail. After every player choice, whether they attacked or not, the enemy will attack next. This will loop until one of the Pokemon faints in battle.
